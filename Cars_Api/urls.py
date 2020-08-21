@@ -20,7 +20,7 @@ from cars_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cars/', views.CarsView.as_view()),
+    path('cars/', views.CarsView.as_view(), name='cars'),
     # path('popular/',),
     # path('rate/', )
 ]

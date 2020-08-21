@@ -11,6 +11,8 @@ class Car(models.Model):
         return Rating.objects.filter(car=self).count()
 
     def average_rate(self):
+        if self.no_of_rates() == 0:
+            return 0
         return round(Rating.objects.aggregate(Sum('rate'))['rate'] / self.no_of_rates(), 2)
 
 
