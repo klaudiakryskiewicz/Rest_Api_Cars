@@ -7,11 +7,12 @@ class Car(models.Model):
     make = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
 
-    def ratings(self):
+    def no_of_rates(self):
         return Rating.objects.filter(car=self).count()
 
     def average_rate(self):
-        return Rating.objects.aggregate(Sum('rate'))['rate']/self.ratings()
+        return round(Rating.objects.aggregate(Sum('rate'))['rate'] / self.no_of_rates(), 2)
+
 
 class Rating(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
