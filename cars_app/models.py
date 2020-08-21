@@ -1,6 +1,6 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from django.db.models import Sum
+from django.db.models import Avg
 
 
 class Car(models.Model):
@@ -13,7 +13,7 @@ class Car(models.Model):
     def average_rate(self):
         if self.no_of_rates() == 0:
             return 0
-        return round(Rating.objects.aggregate(Sum('rate'))['rate'] / self.no_of_rates(), 2)
+        return Rating.objects.filter(car=self).aggregate(Avg('rate'))['rate__avg']
 
     def __str__(self):
         return f"{self.make} {self.model}"

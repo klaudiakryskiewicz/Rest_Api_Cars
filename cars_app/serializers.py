@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Car
+from .models import Car, Rating
 
 
 class CarSerializer(serializers.ModelSerializer):
@@ -9,18 +9,18 @@ class CarSerializer(serializers.ModelSerializer):
     """
 
    # no_of_rates = serializers.IntegerField(source='no_of_rates')
-    average_rate = serializers.FloatField
+    average_rate = serializers.DecimalField(max_digits=3, decimal_places=2)
 
     class Meta:
         model = Car
         fields = ['make', 'model', 'average_rate']
 
 
-class CarAddSerializer(serializers.ModelSerializer):
+class RatingSerializer(serializers.ModelSerializer):
     """
-    Serializer for Car model
+    Serializer for Rating model
     """
 
     class Meta:
-        model = Car
-        fields = '__all__'
+        model = Rating
+        fields = ['car', 'rate']

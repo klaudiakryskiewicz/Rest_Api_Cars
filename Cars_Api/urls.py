@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cars/', views.CarsView.as_view(), name='cars'),
     # path('popular/',),
-    # path('rate/', )
+    path('rate/', views.RateView.as_view(), name='rate')
 ]
 
 
