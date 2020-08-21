@@ -15,6 +15,9 @@ class Car(models.Model):
             return 0
         return round(Rating.objects.aggregate(Sum('rate'))['rate'] / self.no_of_rates(), 2)
 
+    def __str__(self):
+        return f"{self.make} {self.model}"
+
 
 class Rating(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)

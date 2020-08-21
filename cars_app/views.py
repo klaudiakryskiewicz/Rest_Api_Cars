@@ -2,12 +2,10 @@ import json
 import urllib.request
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.urls import reverse
-from rest_framework import mixins, generics, status
+from rest_framework import mixins, generics
 from rest_framework.exceptions import APIException
-from rest_framework.response import Response
-from rest_framework.views import APIView
+
 
 from cars_app.models import Car
 from cars_app.serializers import CarSerializer
@@ -39,4 +37,4 @@ class CarsView(mixins.ListModelMixin,
                     Car.objects.create(make=make, model=model)
 
                     return HttpResponseRedirect(reverse('cars'))
-        raise APIException("This car doesn't exist!")
+                raise APIException("This car doesn't exist!")
