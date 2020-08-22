@@ -4,6 +4,9 @@ from django.db.models import Avg
 
 
 class Car(models.Model):
+    """
+    Model for a car
+    """
     make = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
 
@@ -20,9 +23,11 @@ class Car(models.Model):
 
 
 class Rating(models.Model):
+    """
+    Model for a rating
+    """
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="ratings")
     rate = models.IntegerField(validators=[MinValueValidator(1),
                                            MaxValueValidator(5)])
 
-    class Meta:
-        verbose_name_plural = "ratings"
+

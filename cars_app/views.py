@@ -15,6 +15,10 @@ from cars_app.serializers import CarSerializer, RatingSerializer, CarPopularSeri
 class CarsView(mixins.ListModelMixin,
                mixins.CreateModelMixin,
                generics.GenericAPIView):
+    """
+    API displaying a list of all cars,
+    allowing to add a new car if car exists in an external database
+    """
     queryset = Car.objects.all()
     serializer_class = CarSerializer
 
@@ -42,10 +46,16 @@ class CarsView(mixins.ListModelMixin,
 
 
 class RateView(CreateAPIView):
+    """
+    API allowing to a rate for a car
+    """
     serializer_class = RatingSerializer
     queryset = Rating.objects.all()
 
 
 class CarsPopularView(ListAPIView):
-    queryset = Car.objects.all().annotate(rate_count=Count('ratings')).order_by('-rate_count')
+    """
+    API displaying five cars with the biggest number of rates
+    """
+    queryset = Car.objects.all().annotate(rate_count=Count('ratings')).order_by('-rate_count')[:5]
     serializer_class = CarPopularSerializer
