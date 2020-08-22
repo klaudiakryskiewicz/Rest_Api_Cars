@@ -21,7 +21,7 @@ from cars_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cars/', views.CarsView.as_view(), name='cars'),
-    # path('popular/',),
+    path('popular/', views.CarsPopularView.as_view(), name='popular'),
     path('rate/', views.RateView.as_view(), name='rate')
 ]
 

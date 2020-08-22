@@ -8,7 +8,6 @@ class CarSerializer(serializers.ModelSerializer):
     Serializer for Car model
     """
 
-   # no_of_rates = serializers.IntegerField(source='no_of_rates')
     average_rate = serializers.DecimalField(max_digits=3, decimal_places=2)
 
     class Meta:
@@ -24,3 +23,17 @@ class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
         fields = ['car', 'rate']
+
+
+class CarPopularSerializer(serializers.ModelSerializer):
+    """
+    Serializer for Car model
+    """
+
+    number_of_rates = serializers.IntegerField(source='no_of_rates')
+
+    class Meta:
+        model = Car
+        fields = ['make', 'model', 'number_of_rates']
+
+
