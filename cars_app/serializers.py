@@ -8,7 +8,7 @@ class CarSerializer(serializers.ModelSerializer):
     Serializer for Car model
     """
 
-    average_rate = serializers.DecimalField(max_digits=3, decimal_places=2)
+    average_rate = serializers.DecimalField(max_digits=3, decimal_places=2, read_only=True)
 
     class Meta:
         model = Car
