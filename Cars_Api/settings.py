@@ -28,7 +28,7 @@ SECRET_KEY = '%aqm5!lscmfts-ajlxwz*4+k-13&s3!u-90hsch*zc+o#1a5kb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fierce-oasis-28547.herokuapp.com', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['kkryskiewicz-cars.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
