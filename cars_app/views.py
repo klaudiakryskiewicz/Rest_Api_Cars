@@ -47,7 +47,7 @@ class CarsView(mixins.ListModelMixin,
 
 class RateView(CreateAPIView):
     """
-    API allowing to a rate for a car
+    API allowing to rate a car
     """
     serializer_class = RatingSerializer
     queryset = Rating.objects.all()
