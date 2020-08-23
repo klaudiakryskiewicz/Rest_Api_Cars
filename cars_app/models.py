@@ -29,5 +29,3 @@ class Rating(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="ratings")
     rate = models.IntegerField(validators=[MinValueValidator(1),
                                            MaxValueValidator(5)])
-
-
