@@ -42,7 +42,7 @@ class CarsView(mixins.ListModelMixin,
                     Car.objects.create(make=make, model=model)
 
                     return HttpResponseRedirect(reverse('cars'))
-                raise APIException("This car doesn't exist!")
+            raise APIException("This car doesn't exist!")
 
 
 class RateView(CreateAPIView):
