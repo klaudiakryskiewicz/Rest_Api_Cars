@@ -31,6 +31,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['kkryskiewicz-cars.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 # Application definition
 
